@@ -5,7 +5,7 @@ import RegisterPage from './RegisterPage/RegisterPage';
 import ChatPage from './ChatPage/ChatPage';
 import { useState } from 'react';
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
-const socket = io.connect("http://localhost:4000");
+const socket = io.connect(process.env.REACT_APP_SERVER);
 
 function App() {
   
