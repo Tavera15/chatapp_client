@@ -1,0 +1,10 @@
+
+.bubble{
+    border-radius: 25px;
+    padding: 1rem;
+    width: fit-content;
+}
+
+.self-message{
+    align-self: end;
+}

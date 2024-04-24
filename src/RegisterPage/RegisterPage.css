@@ -1,0 +1,13 @@
+
+.reg-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.register-form{
+    background-color: rgba(0,0,0,.2);
+    border-radius: 25px;
+}

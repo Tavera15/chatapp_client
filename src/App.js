@@ -1,23 +1,52 @@
-import logo from './logo.svg';
+import io from "socket.io-client";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import './App.css';
+import RegisterPage from './RegisterPage/RegisterPage';
+import ChatPage from './ChatPage/ChatPage';
+import { useState } from 'react';
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+const socket = io.connect("http://localhost:4000");
 
 function App() {
+  
+
+  const [username, setUsername] = useState("");
+  const [room, setRoom] = useState("");
+
+
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+
+        <Routes>
+
+          <Route exact path='/' 
+            element={
+              <RegisterPage 
+                username={username}
+                setUsername={setUsername} 
+                room={room} 
+                setRoom={setRoom}
+              />}>
+          </Route>
+
+          <Route exact path='/chat' 
+            element={
+              <PrivateRoute username={username} room={room}>
+                <ChatPage 
+                  socket={socket}
+                  username={username}
+                  room={room}
+                  setUsername={setUsername}
+                  setRoom={setRoom}
+                />
+              </PrivateRoute>
+            }>
+          </Route>
+        </Routes>
+        
+      </Router>
     </div>
   );
 }

@@ -1,0 +1,52 @@
+
+.chat-box{
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 25px;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+
+.chat-messages{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    overflow-y: scroll;
+    flex: 11;
+}
+
+.chat-messages > :first-child{
+    margin-top: auto !important;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.chat-messages::-webkit-scrollbar {
+    display: none;
+  }
+  
+/* Hide scrollbar for IE, Edge and Firefox */
+.chat-messages {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
+.text-controls{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 1;
+    border-radius: 5px;
+}
+
+.text-controls textarea{
+    border: none;
+}
+
+.text-controls button{
+    height:fit-content;
+    align-self: end;
+    border-bottom-right-radius: 5px;
+}
