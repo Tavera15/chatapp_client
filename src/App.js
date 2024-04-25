@@ -3,10 +3,12 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import './App.css';
 import RegisterPage from './RegisterPage/RegisterPage';
 import ChatPage from './ChatPage/ChatPage';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 const socket = io.connect(process.env.REACT_APP_SERVER, {
-  transports: ["websocket"]
+  extraHeaders: {
+    "Access-Control-Allow-Origin": "*"
+  }
 })
 
 function App() {
