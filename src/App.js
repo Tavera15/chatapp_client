@@ -5,12 +5,12 @@ import RegisterPage from './RegisterPage/RegisterPage';
 import ChatPage from './ChatPage/ChatPage';
 import { useState } from 'react';
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+const socket = io.connect(process.env.REACT_APP_SERVER, {
+    transports: ["websocket"],
+    upgrade: false
+  });
 
 function App() {
-  
-  const socket = io.connect(process.env.REACT_APP_SERVER, {
-    transports: ["websocket"]
-  });
   
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
