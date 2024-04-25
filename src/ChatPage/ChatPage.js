@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import "./ChatPage.css";
 import ChatBubble from "../Components/ChatBubble/ChatBubble";
 import { Button } from "react-bootstrap";
+import { SocketContext } from "../Context/SocketContext.js.js";
 
-function ChatPage({socket, username, room, setUsername, setRoom})
+function ChatPage({username, room, setUsername, setRoom})
 {
     const [message_sent, setMessage_sent] = useState("");
 
     const [all_messages, setAllMessages] = useState([]);
 
+    const socket = useContext(SocketContext);
 
     function handleSend(e)
     {
