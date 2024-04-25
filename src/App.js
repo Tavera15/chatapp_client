@@ -6,9 +6,8 @@ import ChatPage from './ChatPage/ChatPage';
 import { useState } from 'react';
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 const socket = io.connect(process.env.REACT_APP_SERVER, {
-    transports: ["polling", "websocket"],
-    upgrade: false
-  });
+  transports: ["websocket"]
+})
 
 function App() {
   
